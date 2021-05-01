@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import clocksvg from '../assets/clock.svg';
+import ReactTimeAgo from 'react-time-ago'
 
 const StoryCard = ({ id }) => {
     const [details, setDetails] = useState({})
@@ -25,7 +27,8 @@ const StoryCard = ({ id }) => {
         <a href={details.url} target="_blank" rel="noreferrer">
             <div key={details.id} className='storycard'>            
                 <h2>{details.title}</h2>
-                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, …when an unknown printer took a galley of type and scrambled</p>
+                <p>Hey! Introducing myself, I'm Asif Ali Khan a Front-end Developer. I believe in doing interesting things that matters so that the learning curve shoudn't have a negative slope.</p>
+                <p><img src={clocksvg} alt='clock'/> <ReactTimeAgo date={new Date(details.time*1000)} locale="en-US" timeStyle="round"/> | {details.score} points by {details.by}</p>
             </div>
         </a>
     );
