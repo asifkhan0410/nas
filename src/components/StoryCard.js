@@ -22,11 +22,12 @@ const StoryCard = ({ id }) => {
 
 
     return (
-        <div key={details.id}>
-            <a href={details.url} target="_blank" rel="noreferrer">
+        <a href={details.url} target="_blank" rel="noreferrer">
+            <div key={details.id} className='storycard'>            
                 <h2>{details.title}</h2>
-            </a>
-        </div>
+                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, …when an unknown printer took a galley of type and scrambled</p>
+            </div>
+        </a>
     );
 }
 

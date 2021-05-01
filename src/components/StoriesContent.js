@@ -35,7 +35,7 @@ function StoriesContent() {
                         <h1>LOading...</h1>
                     </div>
                     :
-                    <div>
+                    <div className="storiesList">
                         {stories.slice(0, 3).map((storyId,index) => {
                             return <StoryCard key={index} id={storyId}/>
                         })}
