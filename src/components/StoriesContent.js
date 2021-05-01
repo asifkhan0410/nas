@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './StoriesContent.css'
 import StoryCard from './StoryCard';
 import Fade from 'react-reveal/Fade';
-
+import spinner from '../assets/wedges.svg'
 
 function StoriesContent() {
     const [stories, setStories] = useState([]);
@@ -45,8 +45,8 @@ function StoriesContent() {
            </header>
            {
                 (loading === true) ?
-                    <div>
-                        <h1>Loading...</h1>
+                    <div className="stories__spinner">
+                        <img src={spinner} alt='loading spinner'/>
                     </div>
                     :
                     <Fade bottom>

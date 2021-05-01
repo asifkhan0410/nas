@@ -1,3 +1,12 @@
+.stories__spinner{
+    height: -webkit-fill-available;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.stories__spinner>img{
+    width: 10rem;
+}
 .storiesContent{
     display: flex;
     flex-direction: column;
