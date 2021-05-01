@@ -28,7 +28,7 @@ const StoryCard = ({ id }) => {
             <div key={details.id} className='storycard'>            
                 <h2>{details.title}</h2>
                 <p>Hey! Introducing myself, I'm Asif Ali Khan a Front-end Developer. I believe in doing interesting things that matters so that the learning curve shoudn't have a negative slope.</p>
-                <p><img src={clocksvg} alt='clock'/> <ReactTimeAgo date={new Date(details.time*1000)} locale="en-US" timeStyle="round"/> | {details.score} points by {details.by}</p>
+                <div className="storycard__info"><img src={clocksvg} alt='clock'/> {details.time && <ReactTimeAgo date={new Date(details.time*1000)} locale="en-US" timeStyle="round"/>} | {details.score} points by {details.by}</div>
             </div>
         </a>
     );

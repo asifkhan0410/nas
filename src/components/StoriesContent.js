@@ -5,6 +5,7 @@ import StoryCard from './StoryCard';
 function StoriesContent() {
     const [stories, setStories] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [count, setCount] = useState(3);
 
 
     const getStories = async () => {
@@ -36,9 +37,10 @@ function StoriesContent() {
                     </div>
                     :
                     <div className="storiesList">
-                        {stories.slice(0, 3).map((storyId,index) => {
+                        {stories.length!==0 && stories.slice(0, `${count}`).map((storyId,index) => {
                             return <StoryCard key={index} id={storyId}/>
                         })}
+                        <button onClick={() => setCount(count+3)}>Load more</button>
                     </div>
             }
 

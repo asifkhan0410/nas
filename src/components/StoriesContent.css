@@ -3,6 +3,7 @@
     flex-direction: column;
     height: -webkit-fill-available;
     padding: 16px;
+    overflow-y: scroll;
 }
 header{
     display: flex;
@@ -38,7 +39,9 @@ header{
     padding: 16px;
     margin: 16px 0px;
     height: 123px;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background: #FFFFFF;
     box-shadow: 0px 3px 28px rgba(0, 0, 0, 0.08);
     border-radius: 12px;
@@ -46,11 +49,25 @@ header{
 .storiesList>a{
     text-decoration: none;
 }
-.storycard>h2, .storycard>p{
+.storiesList>button{
+    background: #FFC700;
+    border-radius: 12px;
+    width: 100%;
+    height: 48px;
+    border: none;
+    outline: none;
     font-family: Open Sans;
     font-style: normal;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
+    line-height: 22px;
+    color: #000000;
+}
+.storycard>h2, .storycard>p,.storycard__info{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
     line-height: 16px;
     padding-bottom: 16px;
     margin: 0%;
@@ -58,7 +75,19 @@ header{
     color: rgba(0, 0, 0, 0.82);
 }
 
-.storycard>p{
+.storycard>p, .storycard__info{
     font-weight: normal;
-    font-size: 12px;
+    font-size: 10px;
+}
+
+.storycard__info{
+    display: flex;
+    align-items: center;
+    padding-bottom: 0px;
+    font-size: 8px;
+    line-height: 11px;
+    color: rgba(0, 0, 0, 0.5);
+}
+.storycard__info>img{
+    margin-right: 5px;
 }
