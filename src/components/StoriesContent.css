@@ -5,6 +5,9 @@
     padding: 16px;
     overflow-y: scroll;
 }
+.storiesContent::-webkit-scrollbar{
+    display: none;
+}
 header{
     display: flex;
 }

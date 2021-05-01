@@ -6,10 +6,11 @@ function StoriesContent() {
     const [stories, setStories] = useState([]);
     const [loading, setLoading] = useState(true);
     const [count, setCount] = useState(3);
+    const [storyType, setStoryType] = useState('new')
 
 
-    const getStories = async () => {
-        const response = await fetch('https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty', {
+    const getStories = async ({storyType}) => {
+        const response = await fetch(`https://hacker-news.firebaseio.com/v0/${storyType}stories.json?print=pretty`, {
             headers: {
                 'Content-type': 'application/json',
             },
@@ -21,19 +22,28 @@ function StoriesContent() {
 
 
     useEffect(() => {
-        getStories();
-    }, [])
+        getStories({storyType});
+    }, [storyType])
+
+    const newStories = () => {
+        setStoryType('new');
+        setCount(3);
+    }
+    const bestStories = () => {
+        setStoryType('best');
+        setCount(3);
+    }
 
     return (
         <div className="storiesContent">
            <header>
-               <button className='storiesContent__new'>New</button>
-               <button className='storiesContent__past'>Past</button>
+               <button className='storiesContent__new' onClick={newStories}>New</button>
+               <button className='storiesContent__past' onClick={bestStories}>Past</button>
            </header>
            {
                 (loading === true) ?
                     <div>
-                        <h1>LOading...</h1>
+                        <h1>Loading...</h1>
                     </div>
                     :
                     <div className="storiesList">
