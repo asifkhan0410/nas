@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './StoriesContent.css'
+import StoryCard from './StoryCard';
 
 function StoriesContent() {
     const [stories, setStories] = useState([]);
@@ -35,8 +36,8 @@ function StoriesContent() {
                     </div>
                     :
                     <div>
-                        {stories.slice(0, 3).map(storyId => {
-                            return <h1>{storyId}</h1>
+                        {stories.slice(0, 3).map((storyId,index) => {
+                            return <StoryCard key={index} id={storyId}/>
                         })}
                     </div>
             }
