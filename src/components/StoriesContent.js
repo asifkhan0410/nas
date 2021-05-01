@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './StoriesContent.css'
 import StoryCard from './StoryCard';
+import Fade from 'react-reveal/Fade';
+
 
 function StoriesContent() {
     const [stories, setStories] = useState([]);
@@ -10,6 +12,7 @@ function StoriesContent() {
 
 
     const getStories = async ({storyType}) => {
+        setLoading(true);
         const response = await fetch(`https://hacker-news.firebaseio.com/v0/${storyType}stories.json?print=pretty`, {
             headers: {
                 'Content-type': 'application/json',
@@ -46,12 +49,14 @@ function StoriesContent() {
                         <h1>Loading...</h1>
                     </div>
                     :
-                    <div className="storiesList">
-                        {stories.length!==0 && stories.slice(0, `${count}`).map((storyId,index) => {
-                            return <StoryCard key={index} id={storyId}/>
-                        })}
-                        <button onClick={() => setCount(count+3)}>Load more</button>
-                    </div>
+                    <Fade bottom>
+                        <div className="storiesList">
+                            {stories.length!==0 && stories.slice(0, `${count}`).map((storyId,index) => {
+                                return <Fade bottom><StoryCard key={index} id={storyId}/></Fade>
+                            })}
+                            <button onClick={() => setCount(count+3)}>Load more</button>
+                        </div>
+                    </Fade>
             }
 
         </div>
